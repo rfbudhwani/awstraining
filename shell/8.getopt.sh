@@ -1,32 +1,45 @@
-#!/bin/bash
-FIRST=""                                   
-LAST=""                                  
-usage() {                                 
-  echo "Usage: $0 [ -f FIRST ] [ -l LAST ]" 1>&2 
-}
-
-while getopts ":f:l:" options; do        
-                                          
-  case "${options}" in                    
-    f)                                    
-      FIRST=${OPTARG}                      
-      ;;
-    l)                                    
-      LAST=${OPTARG}
-      ;;
-    :)                                    
-      echo "Error: -${OPTARG} requires an argument."                     
-      ;;
-    *) 
-      usage                                                       
-      ;;
-  esac
+# #!/bin/bash
+while getopts u:a:f: flag
+do
+    case "${flag}" in
+        u) username=${OPTARG};;
+        a) age=${OPTARG};;
+        f) fullname=${OPTARG};;
+    esac
 done
+echo "Username: $username";
+echo "Age: $age";
+echo "Full Name: $fullname";
 
-echo "First : $FIRST"
-echo "Last : $LAST"
+# #!/bin/bash
+# FIRST=""                                   
+# LAST=""                                  
+# usage() {                                 
+#   echo "Usage: $0 [ -f FIRST ] [ -l LAST ]" 1>&2 
+# }
 
-exit 0               
+# while getopts ":f:l:" options; do        
+                                          
+#   case "${options}" in                    
+#     f)                                    
+#       FIRST=${OPTARG}                      
+#       ;;
+#     l)                                    
+#       LAST=${OPTARG}
+#       ;;
+#     :)                                    
+#       echo "Error: -${OPTARG} requires an argument."                     
+#       ;;
+#     *) 
+#       usage                                                       
+#       ;;
+#   esac
+# done
+
+# echo "First : $FIRST"
+# echo "Last : $LAST"
+
+# exit 0               
 
 # SWITCH=false
 # VAL=default
